@@ -1,6 +1,4 @@
-// TODO: import compose from utils
-const compose = (...fns) => (args) =>
-  fns.reduceRight((arg, fn) => fn(arg), args);
+import { compose } from "../1_functionalComposition/2_compose.js";
 
 // 2. Implement map and filter with reduce
 // first, we will do the reducer implementation for map
