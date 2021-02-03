@@ -1,22 +1,21 @@
+import { randomNumber } from "./2_randomNumber.js";
+
 // Example 3: Applying code resuse on functors
-// REUSED CODE: some complex functions that operated on numbers and returned transformed numbers
+// REUSED CODE: some complex functions that operated on numbers and returns transformed numbers
 const square = (x) => x * x;
+const add = (x) => x + x;
+
 const log = (x) => {
   console.log(x);
   return x;
 };
 
-// ARRAY FUNCTOR that is a number array
+// Map chaining on ARRAY FUNCTOR that is a number array
 const arrFunctor = [1, 2, 3];
-arrFunctor.map(log);
-arrFunctor.map(square).map(log);
+arrFunctor.map(square).map(add).map(log); // 2 8 18
 console.log();
 
-// CUSTOM FUNCTOR that we have defined previously
-const randomNumber = (value) => ({
-  value,
-  map: (transform) => randomNumber(transform(value)),
-});
+// We can apply the same map chaining on a CUSTOM FUNCTOR that we have defined previously
 const myFunctor = randomNumber(3);
-myFunctor.map(log);
-myFunctor.map(square).map(log);
+myFunctor.map(log); // 3
+myFunctor.map(square).map(add).map(log); // 18

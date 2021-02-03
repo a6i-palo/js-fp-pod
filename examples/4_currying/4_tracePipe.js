@@ -1,6 +1,6 @@
 // Example 3
 // Another usage of curry functions and partial application: Adding custom tracing logs to each step of the pipeline
-const pipe = (...fns) => (args) => fns.reduce((arg, fn) => fn(arg), args);
+import { pipe } from "../1_functionalComposition/3_pipe.js";
 
 const trace = (label) => (value) => {
   console.log(`${label}: ${value}`);

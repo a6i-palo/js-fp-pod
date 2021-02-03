@@ -16,3 +16,5 @@ const sum = (collection) => collection.reduce(add);
 const sumSingleDigit = (collection) => sum(filterOutDoubleDigit(collection));
 sumOfNumsLessThan10 = sumSingleDigit(nums);
 console.log(sumOfNumsLessThan10);
+
+export { nums, add, sum, filterOutDoubleDigit, sumOfNumsLessThan10 };
