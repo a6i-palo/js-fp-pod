@@ -16,13 +16,15 @@ console.log(multiplyWith3Argument)
 const curriedBuildUrl = (scheme) => (domain) => (path) =>
   scheme + "://" + domain + "/" + path;
 
-const twitterFavicon = curriedBuildUrl("https")("favicon.ico")("twitter.com");
+const curriedTwitterFavicon = curriedBuildUrl("https")("www.twitter.com")("favicon.ico");
+console.log(curriedTwitterFavicon);
+
+const buildHttpsUri = curriedBuildUrl("https"); 
+const twitterFavicon = buildHttpsUri("www.twitter.com")("favicon.ico");
+const facebookFavicon = buildHttpsUri("www.facebook.com")("favicon.ico");
+
 console.log(twitterFavicon);
-
-const buildHttpsUri = curriedBuildUrl("https");
-const twitterFavicon1 = buildHttpsUri("twitter.com")("favicon.ico");
-
-console.log(twitterFavicon1);
+console.log(facebookFavicon);
 
 
 
